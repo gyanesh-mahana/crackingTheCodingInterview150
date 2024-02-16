@@ -2,12 +2,11 @@ package com.dsa.arraysandstrings;
 
 import java.util.HashMap;
 
+/**
+ * Implement an algorithm to determine if a string has all unique characters. What if you
+ * can not use additional data structures?
+ */
 public class StringUniqueCharacters {
-
-    /**
-     * Implement an algorithm to determine if a string has all unique characters. What if you
-     * can not use additional data structures?
-     */
 
     /**
      * First Approach
@@ -66,6 +65,7 @@ public class StringUniqueCharacters {
 
     /**
      * Approach4 using bit manipulation
+     *
      * @param inputString to find unique chars assuming all the letters are small case
      * @return true if unique chars else false
      */
