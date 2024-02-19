@@ -82,7 +82,25 @@ public class StringUniqueCharacters {
     public static void main(String[] args) {
 
         StringUniqueCharacters s = new StringUniqueCharacters();
-        if (s.hasUniqueCharsApproach4("kanha")) {
+//        if (s.hasUniqueCharsApproach1("kanha")) {
+//            System.out.print("Unique Characters Found");
+//        } else {
+//            System.out.print("Unique Characters Not Found");
+//
+//        }
+//        if (s.hasUniqueCharsApproach2("aman")) {
+//            System.out.print("Unique Characters Found");
+//        } else {
+//            System.out.print("Unique Characters Not Found");
+//
+//        }
+//        if (s.hasUniqueCharsApproach3("gyanesh")) {
+//            System.out.print("Unique Characters Found");
+//        } else {
+//            System.out.print("Unique Characters Not Found");
+//
+//        }
+        if (s.hasUniqueCharsApproach4("aba")) {
             System.out.print("Unique Characters Found");
         } else {
             System.out.print("Unique Characters Not Found");
