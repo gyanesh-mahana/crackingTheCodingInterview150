@@ -44,37 +44,38 @@ public class RotateImage {
      * @return rotated image
      */
     public int[][] rotateImageBy90DegreesApproach2(int[][] image) {
-//        //left rotation
-//        for (int i = 0; i < image.length / 2; i++) {
-//            for (int j = 0; j < image.length / 2; j++) {
-//                int temp = image[i][j];
-//                image[i][j] = image[j][image.length - i - 1];
-//                image[j][image.length - i - 1] = image[image.length - i - 1][image.length - j - 1];
-//                image[image.length - i - 1][image.length - j - 1] = image[image.length - j - 1][i];
-//                image[image.length - j - 1][i] = temp;
-//            }
-//        }
-
-        //right rotation
-        for (int i = 0; i < image.length / 2; i++) {
-            for (int j = 0; j < image.length / 2; j++) {
+        //left rotation
+        for (int i = 0; i < (image.length / 2); i++) {
+            for (int j = i; j < (image.length - i - 1); j++) {
                 int temp = image[i][j];
-                image[i][j] = image[image.length - j - 1][i];
-                image[image.length - j - 1][i] = image[image.length - i - 1][image.length - j - 1];
-                image[image.length - i - 1][image.length - j - 1] = image[j][image.length - i - 1];
-                image[j][image.length - i - 1] = temp;
+                image[i][j] = image[j][image.length - i - 1];
+                image[j][image.length - i - 1] = image[image.length - i - 1][image.length - j - 1];
+                image[image.length - i - 1][image.length - j - 1] = image[image.length - j - 1][i];
+                image[image.length - j - 1][i] = temp;
             }
         }
+
+//        //right rotation
+//        for (int i = 0; i < image.length / 2; i++) {
+//            for (int j = i; j < (image.length - i - 1); j++) {
+//                int temp = image[i][j];
+//                image[i][j] = image[image.length - j - 1][i];
+//                image[image.length - j - 1][i] = image[image.length - i - 1][image.length - j - 1];
+//                image[image.length - i - 1][image.length - j - 1] = image[j][image.length - i - 1];
+//                image[j][image.length - i - 1] = temp;
+//            }
+//        }
         return image;
     }
 
     public static void main(String[] args) {
         RotateImage r = new RotateImage();
         int[][] image = {
-                {1, 0, 1, 1},
-                {0, 1, 1, 0},
-                {0, 1, 1, 0},
-                {1, 0, 1, 1}
+                {1, 0, 1, 1, 0},
+                {0, 1, 1, 0, 0},
+                {0, 1, 1, 0, 0},
+                {1, 0, 1, 1, 0},
+                {0, 0, 0, 0, 0}
         };
         int[][] result = r.rotateImageBy90DegreesApproach2(image);
         for (int i = 0; i < result.length; i++) {
