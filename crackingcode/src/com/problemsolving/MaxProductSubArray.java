@@ -2,19 +2,19 @@ package com.problemsolving;
 
 import java.util.Arrays;
 
-public class MaxProductSubArray {
-    /**
-     * Given an array that contains both positive and negative integers, the task is to find the product of the maximum
-     * product subarray.
-     * Examples:
-     * Input: arr[] = {6, -3, -10, 0, 2}
-     * Output:  180
-     * Explanation: The subarray is {6, -3, -10}
-     * Input: arr[] = {-1, -3, -10, 0, 60}
-     * Output:   60
-     * Explanation: The subarray is {60}*
-     */
+/**
+ * Given an array that contains both positive and negative integers, the task is to find the product of the maximum
+ * product sub-array.
+ * Examples:
+ * Input: arr[] = {6, -3, -10, 0, 2}
+ * Output:  180
+ * Explanation: The sub-array is {6, -3, -10}
+ * Input: arr[] = {-1, -3, -10, 0, 60}
+ * Output:   60
+ * Explanation: The sub-array is {60}*
+ */
 
+public class MaxProductSubArray {
 
     /**
      * find the sub-array with max product in an input array
@@ -48,14 +48,14 @@ public class MaxProductSubArray {
     }
 
     /**
-     * calculate the max product of an sub-array
+     * calculate the max product of a sub-array
      *
      * @param arr input integer array
      * @return max Product
      */
     public int getMaxProductSubArrayApproach1(int[] arr) {
         int maxProduct = arr[0];
-        int i, j = 0;
+        int i, j;
         for (i = 0; i < arr.length; ++i) {
             int product = arr[i];
             if (product > maxProduct) {
@@ -74,16 +74,16 @@ public class MaxProductSubArray {
 
     public int getMaxProductSubArrayApproach2(int[] arr) {
         int pre = 1;
-        int suff = 1;
+        int suf = 1;
         int ans = Integer.MIN_VALUE;
         int n = arr.length;
 
         for (int i = 0; i < n; i++) {
             if (pre == 0) pre = 1;
-            if (suff == 0) suff = 1;
+            if (suf == 0) suf = 1;
             pre = pre * arr[i];
-            suff = suff * arr[n - i - 1];
-            ans = Math.max(ans, Math.max(pre, suff));
+            suf = suf * arr[n - i - 1];
+            ans = Math.max(ans, Math.max(pre, suf));
         }
         return ans;
     }
