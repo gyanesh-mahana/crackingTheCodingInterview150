@@ -18,6 +18,7 @@ public class MaxProductSubArray {
 
     /**
      * find the sub-array with max product in an input array
+     *
      * @param arr input integer array
      * @return sub array with max product
      */
@@ -48,10 +49,11 @@ public class MaxProductSubArray {
 
     /**
      * calculate the max product of an sub-array
+     *
      * @param arr input integer array
      * @return max Product
      */
-    public int getMaxProductSubArray(int[] arr) {
+    public int getMaxProductSubArrayApproach1(int[] arr) {
         int maxProduct = arr[0];
         int i, j = 0;
         for (i = 0; i < arr.length; ++i) {
@@ -70,10 +72,29 @@ public class MaxProductSubArray {
         return maxProduct;
     }
 
+    public int getMaxProductSubArrayApproach2(int[] arr) {
+        int pre = 1;
+        int suff = 1;
+        int ans = Integer.MIN_VALUE;
+        int n = arr.length;
+
+        for (int i = 0; i < n; i++) {
+            if (pre == 0) pre = 1;
+            if (suff == 0) suff = 1;
+            pre = pre * arr[i];
+            suff = suff * arr[n - i - 1];
+            ans = Math.max(ans, Math.max(pre, suff));
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
         int[] input = {-7, 0, 9, 12, -9, -33};
         MaxProductSubArray m = new MaxProductSubArray();
-        int result = m.getMaxProductSubArray(input);
+        int result = m.getMaxProductSubArrayApproach1(input);
+        System.out.print(result);
+
+        result = m.getMaxProductSubArrayApproach2(input);
         System.out.print(result);
     }
 }
