@@ -36,8 +36,7 @@ public class FindNthToLastElement {
     }
 
     public static void main(String[] args) {
-        Node node = new Node(2);
-        Node head = node;
+        Node head = new Node(2);
 
         head.appendToTail(3);
         head.appendToTail(4);

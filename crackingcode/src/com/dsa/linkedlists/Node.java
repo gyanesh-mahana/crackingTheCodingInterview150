@@ -37,4 +37,16 @@ public class Node {
         }
         return head;
     }
+
+
+    public void printLinkedList() {
+        Node temp;
+        temp = this;
+        while (temp != null) {
+            System.out.print(temp.data + "->");
+            temp = temp.next;
+        }
+        System.out.print("NULL");
+
+    }
 }
