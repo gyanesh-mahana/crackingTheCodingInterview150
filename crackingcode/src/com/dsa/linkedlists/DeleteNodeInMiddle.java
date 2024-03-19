@@ -19,7 +19,7 @@ public class DeleteNodeInMiddle {
      *             Time Complexity: O(N)
      *             Space Complexity: O(1)
      */
-    public void deleteMiddleNode(Node head) {
+    public void deleteMiddleNodeApproach1(Node head) {
         Node pointer1;
         Node pointer2;
         Node prev;
@@ -41,6 +41,26 @@ public class DeleteNodeInMiddle {
 
     }
 
+
+    public void deleteMiddleNodeApproach2(Node head) {
+        Node pointer1;
+        Node pointer2;
+        pointer1 = head;
+        pointer2 = head;
+
+        if (head == null || head.next == null) {
+            return;
+        }
+
+        while (pointer2 != null && pointer2.next != null) {
+            pointer1 = pointer1.next;
+            pointer2 = pointer2.next.next;
+        }
+        pointer1.data = pointer1.next.data;
+        pointer1.next = pointer1.next.next;
+
+    }
+
     public static void main(String[] args) {
 
         DeleteNodeInMiddle dn = new DeleteNodeInMiddle();
@@ -55,8 +75,9 @@ public class DeleteNodeInMiddle {
         head.appendToTail(7);
         head.appendToTail(8);
         head.appendToTail(9);
-        dn.deleteMiddleNode(head);
-
+        dn.deleteMiddleNodeApproach1(head);
+        head.printLinkedList();
+        dn.deleteMiddleNodeApproach2(head);
         head.printLinkedList();
     }
 }
