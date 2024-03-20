@@ -13,6 +13,10 @@ public class Node {
         this.next = null;
     }
 
+    public Node() {
+        this.next = null;
+    }
+
     public void appendToTail(int data) {
         Node end = new Node(data);
         Node temp = this;
